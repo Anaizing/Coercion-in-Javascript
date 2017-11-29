@@ -43,16 +43,36 @@ typeof returns STRING VALUES
       null                    (a key word)
       undefined               (an identifier, cant set a value to it in strict mode)
       +0,-0
+
 ### NaN
 Remember typeof NaN is "number"
+NaN is not equal to itself, its the only value in the language that is not equal to itself.
+isNaN is a global utility to test for NaN-but it has a bug
 
       var a = "a" / 2;
 
-      a;                //NaN
-      typeof a;         //"number"
+      a;                //NaN- a string divided by a number is NotANumber
+      typeof a;         //"number"- because typeof Nan is "number"
       isNaN(a);         //true
 
-      isNaN("foo");     //true WTF??
+      isNaN("foo");     //true WTF?? (bug)
+      
+Es6 gives us a utility we can use to test NaN, with Number.isNaN that can be polyfilled.
+
+      if (!Number.isNaN) {
+            Number.isNaN = function(num) {
+                  return (
+                        typeof num === "number" && window.isNaN(num)
+                  );
+            }
+      }
+Since NaN is the only value that is not equal to itself, the test can be written like this.
+
+      if (!Number.isNaN) {
+                  Number.isNaN = function(num) {
+                        return num !== num;
+                  };
+       }
 
 
 
