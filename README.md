@@ -1,9 +1,9 @@
-### Coercion-in-Javascript
+# Coercion-in-Javascript
 Important things I learned from Kyle Simpson, YDKJS
 
 ## Primitive Types
 
-#cList of Primitive Types
+### List of Primitive Types
 
       undefined
       string
@@ -14,7 +14,7 @@ Important things I learned from Kyle Simpson, YDKJS
       null
       
 
-# Using the typeof operator
+### Using the typeof operator
       typeof foo;                     //"undefined"
       typeof "foo";                   //"string"
       typeof 123;                     //"number"
